@@ -1,0 +1,11 @@
+What is GitHub Actions:  A workflow automation tool by github
+
+// First workflow
+name: First Action
+on: workflow_dispatch
+jobs:
+  first-job:
+   runs-on: ubuntu-latest
+   steps:
+     - name: Greeting
+       run: echo "Hello World"

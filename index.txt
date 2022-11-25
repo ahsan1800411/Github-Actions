@@ -1,5 +1,8 @@
 What is GitHub Actions:  A workflow automation tool by github
 
+// to rever to a previous commit
+git revert <commit-id>
+
 // First workflow
 name: First Action
 on: workflow_dispatch

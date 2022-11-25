@@ -3,12 +3,18 @@ What is GitHub Actions:  A workflow automation tool by github
 // to rever to a previous commit
 git revert <commit-id>
 
+# needs: RunTests   needs commands means when your job depend on some other job to complete first
+
+
+
 // First workflow
 name: First Action
-on: workflow_dispatch
+on: workflow_dispatch   // workflow_dispatch means we trigger this action by ourself
 jobs:
   first-job:
    runs-on: ubuntu-latest
    steps:
      - name: Greeting
        run: echo "Hello World"
+
+      

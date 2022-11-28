@@ -28,9 +28,33 @@
 #     - name: Deploy the app
 #       run: echo 'Deploying......'
 
-# Activity Types
+# # Activity Types
 
-name: ActivityTypes
+# name: ActivityTypes
+# on:
+#   # pull_request:
+#   #   types:
+#   #     - opened
+#   #     - closed
+#   push:
+#     branches:
+#       - main
+# jobs:
+#   RunTests:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Get Code
+#         uses: actions/checkout@v3
+#       - name: Install dependencies
+#         run: npm ci
+#       - name: Run test
+#         run: npm test
+#       - name: Expression and Context
+#         run: echo "${{toJSON(github)}}"
+
+# Job Artifacts and Outputs
+
+name: JobArtifacts
 on:
   # pull_request:
   #   types:
@@ -49,5 +73,10 @@ jobs:
         run: npm ci
       - name: Run test
         run: npm test
-      - name: Expression and Context
-        run: echo "${{toJSON(github)}}"
+      - name: build
+        run: npm run build
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: Dist-files
+          path: dist

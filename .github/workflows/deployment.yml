@@ -56,15 +56,11 @@
 
 name: JobArtifacts
 on:
-  # pull_request:
-  #   types:
-  #     - opened
-  #     - closed
   push:
     branches:
       - main
 jobs:
-  RunTests:
+  Build:
     runs-on: ubuntu-latest
     steps:
       - name: Get Code
@@ -80,3 +76,16 @@ jobs:
         with:
           name: Dist-files
           path: dist
+
+  deploy:
+    needs: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: Dist-files
+      - name: Output Content
+        run: ls
+      - name: Deploying
+        run: echo "Deploying"

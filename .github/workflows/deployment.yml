@@ -36,6 +36,9 @@ on:
     types:
       - opened
       - closed
+  push:
+    branches:
+      - main
 jobs:
   RunTests:
     runs-on: ubuntu-latest

@@ -1,6 +1,41 @@
-name: Test
+# name: Test
+# on:
+#   push:
+# jobs:
+#   RunTests:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Get Code
+#         uses: actions/checkout@v3
+#       - name: Install dependencies
+#         run: npm ci
+#       - name: Run test
+#         run: npm test
+#       - name: Expression and Context
+#         run: echo "${{toJSON(github)}}"
+
+# deploy:
+#   # needs: RunTests   needs commands means when your job depend on some other job to complete first
+#   runs-on: ubuntu-latest
+#   steps:
+#     - name: Get code
+#       uses: actions/checkout@v3
+#     - name: Install dependencies
+#       run: npm ci
+#     - name: Build
+#       run: npm run build
+
+#     - name: Deploy the app
+#       run: echo 'Deploying......'
+
+# Activity Types
+
+name: ActivityTypes
 on:
-  push:
+  pull_request:
+    types:
+      - opened
+      - closed
 jobs:
   RunTests:
     runs-on: ubuntu-latest
@@ -13,16 +48,3 @@ jobs:
         run: npm test
       - name: Expression and Context
         run: echo "${{toJSON(github)}}"
-  deploy:
-    # needs: RunTests   needs commands means when your job depend on some other job to complete first
-    runs-on: ubuntu-latest
-    steps:
-      - name: Get code
-        uses: actions/checkout@v3
-      - name: Install dependencies
-        run: npm ci
-      - name: Build
-        run: npm run build
-
-      - name: Deploy the app
-        run: echo 'Deploying......'

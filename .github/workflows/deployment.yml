@@ -32,10 +32,10 @@
 
 name: ActivityTypes
 on:
-  pull_request:
-    types:
-      - opened
-      - closed
+  # pull_request:
+  #   types:
+  #     - opened
+  #     - closed
   push:
     branches:
       - main

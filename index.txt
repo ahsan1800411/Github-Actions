@@ -14,6 +14,14 @@ Skipping the workflow
 [skip actions]
 [actions skip]
 
+if two jobs install dependencies, then we all know installing dependencies in a node project takes very much amount of time, so github actions provides caches as:
+
+- name: Cache dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: deps-node-modules-${{hashFiles('**/.package-lock.json')}}
+
 
 // First workflow
 name: First Action
